@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="bn">
 <head>
   <meta charset="UTF-8" />
@@ -6,19 +6,19 @@
   <title>Axpart Home | Selling • Buying • Investing</title>
   <style>
     :root {
-      --bg-page: #f4f6fa;
+      --bg-page: #f4f6f9;
       --bg-card: #ffffff;
-      --navy: #0f1742;
-      --navy-soft: #1b2866;
-      --accent-red: #d91b24;
-      --accent-gold: #c99a2e;
-      --text-main: #182032;
-      --text-muted: #5c667a;
-      --border-soft: #e4e8f0;
+      --brand-dark: #111827;
+      --brand-navy: #141b4d;
+      --brand-red: #d91b24;
+      --brand-red-dark: #b3121a;
+      --text-main: #111827;
+      --text-muted: #5b6475;
+      --border-soft: #e5e9f0;
       --wa-green: #16a34a;
       --wa-hover: #12823b;
-      --shadow-sm: 0 6px 20px rgba(15, 23, 66, 0.06);
-      --shadow-md: 0 14px 32px rgba(15, 23, 66, 0.11);
+      --shadow-sm: 0 6px 20px rgba(17, 24, 39, 0.06);
+      --shadow-md: 0 14px 32px rgba(17, 24, 39, 0.11);
     }
 
     * {
@@ -35,12 +35,13 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Smooth Top Brand Header */
+    /* Smooth Brand Header */
     header {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-soft) 100%);
-      color: #ffffff;
-      padding: 28px 18px;
-      border-bottom: 3px solid var(--accent-gold);
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+      color: var(--text-main);
+      padding: 24px 18px;
+      border-bottom: 3px solid var(--brand-red);
+      box-shadow: 0 4px 16px rgba(17, 24, 39, 0.05);
     }
 
     .header-inner {
@@ -59,49 +60,59 @@
       gap: 14px;
     }
 
-    .logo-mark {
-      width: 58px;
-      height: 58px;
+    .logo-box {
+      width: 66px;
+      height: 66px;
       border-radius: 14px;
       background: #ffffff;
+      border: 1px solid #e7ebf2;
       display: grid;
       place-items: center;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+      box-shadow: 0 6px 16px rgba(17, 24, 39, 0.07);
       flex-shrink: 0;
     }
 
     .brand-title-group h1 {
-      font-size: 24px;
-      font-weight: 700;
-      letter-spacing: 0.4px;
-      line-height: 1.2;
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--brand-dark);
+      line-height: 1.15;
+      letter-spacing: -0.3px;
+    }
+
+    .brand-title-group h1 span.red-dot {
+      color: var(--brand-red);
     }
 
     .brand-title-group .tagline {
-      font-size: 13px;
-      color: #e2e8f8;
-      margin-top: 3px;
-      letter-spacing: 0.3px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--brand-dark);
+      margin-top: 4px;
+      padding-left: 10px;
+      border-left: 3px solid var(--brand-red);
     }
 
     .founder-box {
       text-align: right;
-      background: rgba(255, 255, 255, 0.08);
-      padding: 10px 16px;
+      background: #ffffff;
+      padding: 11px 16px;
       border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.14);
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 4px 12px rgba(17, 24, 39, 0.04);
     }
 
     .founder-name {
       font-size: 14px;
       font-weight: 700;
       letter-spacing: 0.6px;
-      color: #ffffff;
+      color: #4b5563;
     }
 
     .founder-role {
-      font-size: 12px;
-      color: #d6def5;
+      font-size: 12.5px;
+      color: var(--text-main);
+      font-weight: 500;
     }
 
     /* Main Container */
@@ -123,9 +134,9 @@
     .filter-btn {
       padding: 9px 20px;
       border-radius: 999px;
-      border: 1.5px solid var(--navy);
+      border: 1.5px solid var(--brand-dark);
       background: #ffffff;
-      color: var(--navy);
+      color: var(--brand-dark);
       font-size: 14px;
       font-weight: 600;
       cursor: pointer;
@@ -133,14 +144,17 @@
     }
 
     .filter-btn:hover {
-      background: #eef2fc;
+      background: #fef2f2;
+      border-color: var(--brand-red);
+      color: var(--brand-red);
       transform: translateY(-1px);
     }
 
     .filter-btn.active {
-      background: var(--navy);
+      background: var(--brand-red);
+      border-color: var(--brand-red);
       color: #ffffff;
-      box-shadow: 0 6px 16px rgba(15, 23, 66, 0.18);
+      box-shadow: 0 6px 16px rgba(217, 27, 36, 0.22);
     }
 
     /* Property Grid */
@@ -198,14 +212,14 @@
       font-weight: 700;
       padding: 4px 11px;
       border-radius: 999px;
-      background: #eef2ff;
-      color: var(--navy);
+      background: #f1f5f9;
+      color: var(--brand-dark);
       margin-bottom: 10px;
     }
 
     .badge.land {
       background: #fef2f2;
-      color: var(--accent-red);
+      color: var(--brand-red);
     }
 
     .card h3 {
@@ -224,8 +238,8 @@
     .specs {
       font-size: 13.5px;
       color: #2c364b;
-      background: #f8faff;
-      border: 1px solid #edf1f8;
+      background: #f8fafc;
+      border: 1px solid #edf1f7;
       padding: 9px 12px;
       border-radius: 10px;
       margin-bottom: 14px;
@@ -234,7 +248,7 @@
     .price {
       font-size: 17px;
       font-weight: 700;
-      color: var(--navy);
+      color: var(--brand-dark);
       margin-top: auto;
       margin-bottom: 14px;
     }
@@ -269,28 +283,27 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background: #f1f4fa;
-      color: var(--navy);
+      background: var(--brand-dark);
+      color: #ffffff;
       text-decoration: none;
       font-weight: 600;
       font-size: 13.5px;
       padding: 10px 13px;
       border-radius: 10px;
-      border: 1px solid #d9e0ee;
       transition: background 0.2s ease;
     }
 
     .call-btn:hover {
-      background: #e4eaf6;
+      background: var(--brand-red);
     }
 
-    /* Footer */
+    /* Footer with Navy Curve Accent */
     footer {
       margin-top: 46px;
-      background: var(--navy);
-      color: #e4e9f5;
-      padding: 32px 18px;
-      border-top: 3px solid var(--accent-gold);
+      background: linear-gradient(180deg, var(--brand-dark) 0%, var(--brand-navy) 100%);
+      color: #e5e9f2;
+      padding: 34px 18px 24px;
+      border-top: 4px solid var(--brand-red);
     }
 
     .footer-inner {
@@ -310,7 +323,7 @@
 
     .footer-inner p,
     .footer-inner a {
-      color: #cfd8ee;
+      color: #d3d9e6;
       text-decoration: none;
       display: block;
       margin-bottom: 6px;
@@ -328,7 +341,7 @@
       border-top: 1px solid rgba(255, 255, 255, 0.14);
       text-align: center;
       font-size: 13px;
-      color: #b7c3df;
+      color: #b8c2d6;
     }
 
     @media (max-width: 640px) {
@@ -344,16 +357,20 @@
   <header>
     <div class="header-inner">
       <div class="brand-lockup">
-        <div class="logo-mark" aria-label="Axpart Home Logo">
-          <svg width="42" height="42" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 14C10 11.7909 11.7909 10 14 10H26L14 54H10V14Z" fill="#d91b24"/>
-            <path d="M29 12L44 54H35.5L32.8 46H21.2L18.5 54H10L24.5 12H29ZM23.4 39.2H30.6L27 27.5L23.4 39.2Z" fill="#0f1742"/>
-            <rect x="37" y="13" width="17" height="5" rx="2.5" fill="#d91b24"/>
+        <div class="logo-box" aria-label="Axpart Home Logo">
+          <!-- Custom A Monogram matching Axpart Home brand mark -->
+          <svg width="50" height="50" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Left Red Curved Wing -->
+            <path d="M10 18C10 13.5817 13.5817 10 18 10H31L18 68H10V18Z" fill="#d91b24"/>
+            <!-- Main Bold A Body -->
+            <path d="M35 12H43L62 68H50.5L46.7 55.5H31.3L27.5 68H16L35 12ZM34.2 45.8H43.8L39 29.2L34.2 45.8Z" fill="#111827"/>
+            <!-- Right Red Base Foot -->
+            <path d="M47 57H61L65 68H50.5L47 57Z" fill="#d91b24"/>
           </svg>
         </div>
         <div class="brand-title-group">
-          <h1>Axpart Home</h1>
-          <p class="tagline">Selling • Buying • Investing — আপনার বিশ্বস্ত প্রপার্টি পার্টনার</p>
+          <h1>Axpart Home<span class="red-dot">.</span></h1>
+          <p class="tagline">Selling • Buying • Investing</p>
         </div>
       </div>
 
