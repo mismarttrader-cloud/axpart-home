@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Axpart Home | Selling • Buying • Investing</title>
+  <style>
+    :root {
+      --bg-page: #f4f6fa;
+      --bg-card: #ffffff;
+      --navy: #0f1742;
+      --navy-soft: #1b2866;
+      --accent-red: #d91b24;
+      --accent-gold: #c99a2e;
+      --text-main: #182032;
+      --text-muted: #5c667a;
+      --border-soft: #e4e8f0;
+      --wa-green: #16a34a;
+      --wa-hover: #12823b;
+      --shadow-sm: 0 6px 20px rgba(15, 23, 66, 0.06);
+      --shadow-md: 0 14px 32px rgba(15, 23, 66, 0.11);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Smooth Top Brand Header */
+    header {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-soft) 100%);
+      color: #ffffff;
+      padding: 28px 18px;
+      border-bottom: 3px solid var(--accent-gold);
+    }
+
+    .header-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand-lockup {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo-mark {
+      width: 58px;
+      height: 58px;
+      border-radius: 14px;
+      background: #ffffff;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+      flex-shrink: 0;
+    }
+
+    .brand-title-group h1 {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      line-height: 1.2;
+    }
+
+    .brand-title-group .tagline {
+      font-size: 13px;
+      color: #e2e8f8;
+      margin-top: 3px;
+      letter-spacing: 0.3px;
+    }
+
+    .founder-box {
+      text-align: right;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 10px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .founder-name {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      color: #ffffff;
+    }
+
+    .founder-role {
+      font-size: 12px;
+      color: #d6def5;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1140px;
+      margin: 28px auto 0;
+      padding: 0 16px;
+    }
+
+    /* Filter Bar */
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 26px;
+    }
+
+    .filter-btn {
+      padding: 9px 20px;
+      border-radius: 999px;
+      border: 1.5px solid var(--navy);
+      background: #ffffff;
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.22s ease;
+    }
+
+    .filter-btn:hover {
+      background: #eef2fc;
+      transform: translateY(-1px);
+    }
+
+    .filter-btn.active {
+      background: var(--navy);
+      color: #ffffff;
+      box-shadow: 0 6px 16px rgba(15, 23, 66, 0.18);
+    }
+
+    /* Property Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .card-img-wrap {
+      position: relative;
+      height: 210px;
+      background: #e9edf5;
+      overflow: hidden;
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+
+    .card:hover img {
+      transform: scale(1.03);
+    }
+
+    .card-body {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .badge {
+      align-self: flex-start;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 11px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .badge.land {
+      background: #fef2f2;
+      color: var(--accent-red);
+    }
+
+    .card h3 {
+      font-size: 18px;
+      color: var(--text-main);
+      margin-bottom: 6px;
+      line-height: 1.35;
+    }
+
+    .location {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .specs {
+      font-size: 13.5px;
+      color: #2c364b;
+      background: #f8faff;
+      border: 1px solid #edf1f8;
+      padding: 9px 12px;
+      border-radius: 10px;
+      margin-bottom: 14px;
+    }
+
+    .price {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-top: auto;
+      margin-bottom: 14px;
+    }
+
+    .btn-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+    }
+
+    .wa-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: var(--wa-green);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+
+    .wa-btn:hover {
+      background: var(--wa-hover);
+      transform: translateY(-1px);
+    }
+
+    .call-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #f1f4fa;
+      color: var(--navy);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 13.5px;
+      padding: 10px 13px;
+      border-radius: 10px;
+      border: 1px solid #d9e0ee;
+      transition: background 0.2s ease;
+    }
+
+    .call-btn:hover {
+      background: #e4eaf6;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 46px;
+      background: var(--navy);
+      color: #e4e9f5;
+      padding: 32px 18px;
+      border-top: 3px solid var(--accent-gold);
+    }
+
+    .footer-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      font-size: 14px;
+    }
+
+    .footer-inner h4 {
+      color: #ffffff;
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+
+    .footer-inner p,
+    .footer-inner a {
+      color: #cfd8ee;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .footer-inner a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      max-width: 1140px;
+      margin: 22px auto 0;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+      text-align: center;
+      font-size: 13px;
+      color: #b7c3df;
+    }
+
+    @media (max-width: 640px) {
+      .founder-box {
+        text-align: left;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <div class="brand-lockup">
+        <div class="logo-mark" aria-label="Axpart Home Logo">
+          <svg width="42" height="42" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 14C10 11.7909 11.7909 10 14 10H26L14 54H10V14Z" fill="#d91b24"/>
+            <path d="M29 12L44 54H35.5L32.8 46H21.2L18.5 54H10L24.5 12H29ZM23.4 39.2H30.6L27 27.5L23.4 39.2Z" fill="#0f1742"/>
+            <rect x="37" y="13" width="17" height="5" rx="2.5" fill="#d91b24"/>
+          </svg>
+        </div>
+        <div class="brand-title-group">
+          <h1>Axpart Home</h1>
+          <p class="tagline">Selling • Buying • Investing — আপনার বিশ্বস্ত প্রপার্টি পার্টনার</p>
+        </div>
+      </div>
+
+      <div class="founder-box">
+        <div class="founder-name">MD IMON HOSSEN</div>
+        <div class="founder-role">Founder &amp; Managing Director</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterItems('all', this)">সব প্রপার্টি</button>
+      <button class="filter-btn" onclick="filterItems('flat', this)">রেডি ও নির্মাণাধীন ফ্ল্যাট</button>
+      <button class="filter-btn" onclick="filterItems('land', this)">জমি / প্লট</button>
+    </div>
+
+    <section class="grid" id="propertyGrid">
+      <!-- ফ্ল্যাট উদাহরণ ১ -->
+      <article class="card" data-type="flat">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=900&q=80" alt="আধুনিক আবাসিক ফ্ল্যাট" />
+        </div>
+        <div class="card-body">
+          <span class="badge">রেডি ফ্ল্যাট</span>
+          <h3>১,৪৫০ বর্গফুটের আধুনিক আবাসিক ফ্ল্যাট</h3>
+          <p class="location">মালিবাগ, ঢাকা</p>
+          <p class="specs">৩ বেড • ৩ বাথ • ২ বারান্দা • লিফট ও পার্কিং সুবিধা</p>
+          <p class="price">মূল্য: ১ কোটি ১৫ লাখ টাকা</p>
+          <div class="btn-row">
+            <a class="wa-btn" target="_blank" rel="noopener"
+               href="https://wa.me/8801570292848?text=%E0%A6%86%E0%A6%B8%E0%A6%B8%E0%A6%BE%E0%A6%B2%E0%A6%BE%E0%A6%AE%E0%A7%81%20%E0%A6%86%E0%A6%B2%E0%A6%BE%E0%A6%87%E0%A6%95%E0%A7%81%E0%A6%AE%2C%20%E0%A6%AE%E0%A6%BE%E0%A6%B2%E0%A6%BF%E0%A6%AC%E0%A6%BE%E0%A6%97%E0%A7%87%E0%A6%B0%20%E0%A6%B8%E0%A7%87%E0%A6%87%20%E0%A6%AB%E0%A7%8D%E0%A6%B2%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%9F%E0%A6%9F%E0%A6%BF%E0%A6%B0%20%E0%A6%AC%E0%A6%BF%E0%A6%B8%E0%A7%8D%E0%A6%A4%E0%A6%BE%E0%A6%B0%E0%A6%BF%E0%A6%A4%20%E0%A6%9C%E0%A6%BE%E0%A6%A8%E0%A6%A4%E0%A7%87%20%E0%A6%9A%E0%A6%BE%E0%A6%87%E0%A5%A4">
+              WhatsApp-এ কথা বলুন
+            </a>
+            <a class="call-btn" href="tel:01570292848">কল দিন</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- জমি উদাহরণ ২ -->
+      <article class="card" data-type="land">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=900&q=80" alt="আবাসিক প্লট বা জমি" />
+        </div>
+        <div class="card-body">
+          <span class="badge land">জমি / প্লট</span>
+          <h3>৫ কাঠা নিষ্কণ্টক আবাসিক জমি</h3>
+          <p class="location">আফতাবনগর, ঢাকা</p>
+          <p class="specs">৫ কাঠা • ৩০ ফিট প্রশস্ত রাস্তা • কাগজপত্র ১০০% আপডেট</p>
+          <p class="price">মূল্য: প্রতি কাঠা ৬৫ লাখ টাকা</p>
+          <div class="btn-row">
+            <a class="wa-btn" target="_blank" rel="noopener"
+               href="https://wa.me/8801570292848?text=%E0%A6%86%E0%A6%B8%E0%A6%B8%E0%A6%BE%E0%A6%B2%E0%A6%BE%E0%A6%AE%E0%A7%81%20%E0%A6%86%E0%A6%B2%E0%A6%BE%E0%A6%87%E0%A6%95%E0%A7%81%E0%A6%AE%2C%20%E0%A6%86%E0%A6%AB%E0%A6%A4%E0%A6%BE%E0%A6%AC%E0%A6%A8%E0%A6%97%E0%A6%B0%E0%A7%87%E0%A6%B0%20%E0%A6%9C%E0%A6%AE%E0%A6%BF%E0%A6%B0%20%E0%A6%AC%E0%A6%BF%E0%A6%B8%E0%A7%8D%E0%A6%A4%E0%A6%BE%E0%A6%B0%E0%A6%BF%E0%A6%A4%20%E0%A6%9C%E0%A6%BE%E0%A6%A8%E0%A6%A4%E0%A7%87%20%E0%A6%9A%E0%A6%BE%E0%A6%87%E0%A5%A4">
+              WhatsApp-এ কথা বলুন
+            </a>
+            <a class="call-btn" href="tel:01570292848">কল দিন</a>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <h4>Axpart Home</h4>
+        <p>MD IMON HOSSEN</p>
+        <p>Founder &amp; Managing Director</p>
+        <p>Selling • Buying • Investing</p>
+      </div>
+      <div>
+        <h4>সরাসরি যোগাযোগ</h4>
+        <a href="tel:01570292848">মোবাইল / WhatsApp: 01570292848</a>
+        <a href="tel:09658149082">হটলাইন: 09658149082</a>
+        <a href="tel:01408160215">অতিরিক্ত নম্বর: 01408160215</a>
+      </div>
+      <div>
+        <h4>ঠিকানা ও ডিজিটাল লিংক</h4>
+        <p>Dhaka, Bangladesh 1217</p>
+        <a href="mailto:axparthome@gmail.com">ইমেইল: axparthome@gmail.com</a>
+        <p>Facebook: Axpart Home</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © ২০২৬ Axpart Home — সর্বস্বত্ব সংরক্ষিত।
+    </div>
+  </footer>
+
+  <script>
+    function filterItems(type, btn) {
+      document.querySelectorAll('.filter-btn').forEach(function (b) {
+        b.classList.remove('active');
+      });
+      btn.classList.add('active');
+
+      document.querySelectorAll('.card').forEach(function (card) {
+        var cardType = card.getAttribute('data-type');
+        if (type === 'all' || cardType === type) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
